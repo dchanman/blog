@@ -15,6 +15,7 @@
                 <h1><a href="/">Derk's Werks </a></h1>
                 <nav><ul>
                     <li class="active"><a href="/category/dev.html">dev</a></li>
+                    <li><a href="/category/life.html">life</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
@@ -40,15 +41,16 @@
 <p>I have absolutely no data redundancy built in at the moment. And while I would like to get a RAID0/1 box from NCIX sometime, I'm just backing up using rsync in the meantime.</p>
 <p>My backup drive is truly a piece of art. A 250GB Samba external harddrive that needs to be plugged into the wall socket. I hear the disc whurring away as backup-secure data is being written to it. I swear there's some disc dwarf in there pissed that someone blew the dust off his decade-old home and he's now power-sawing his way out for revenge.</p>
 <p>Anyways here's my backup script:</p>
-<blockquote>
-<p>#!/bin/bash<br />
-LOG_DIR=/home/derek/rsync-log.out
-rsync -rv /home/derek/pidata/02-Music/ /home/derek/pibackup/02-Music &gt;&gt; $LOG_DIR<br />
-rsync -rv /home/derek/pidata/03-Photos/ /home/derek/pibackup/03-Photos &gt;&gt; $LOG_DIR 
-rsync -rv /home/derek/pidata/05-Programming/ /home/derek/pibackup/05-Programming &gt;&gt; $LOG_DIR<br />
-rsync -rv /home/derek/pidata/06-Karate/ /home/derek/pibackup/06-Karate &gt;&gt; $LOG_DIR  </p>
-</blockquote>
-<p><em>rsync</em> basically does a copy paste between two folders, skipping over the files that are the same.</p>
+<div class="highlight"><pre><span class="se">\#</span>!/bin/bash  
+<span class="nv">LOG_DIR</span><span class="o">=</span>/home/derek/rsync-log.out
+rsync -rv /home/derek/pidata/02-Music/ /home/derek/pibackup/02-Music &gt;&gt; <span class="nv">$LOG_DIR</span>  
+rsync -rv /home/derek/pidata/03-Photos/ /home/derek/pibackup/03-Photos &gt;&gt; <span class="nv">$LOG_DIR</span> 
+rsync -rv /home/derek/pidata/05-Programming/ /home/derek/pibackup/05-Programming &gt;&gt; <span class="nv">$LOG_DIR</span>  
+rsync -rv /home/derek/pidata/06-Karate/ /home/derek/pibackup/06-Karate &gt;&gt; <span class="nv">$LOG_DIR</span>  
+</pre></div>
+
+
+<p><em>rsync</em> basically does a copy paste between two folders, skipping over the files that are the same. Of course, the actual algorithm is incredibly powerful and uses concepts such as rolling checksums to efficienctly send only portions of files that have changed to minimize the amount of data actually copied whenever possible.</p>
 <p>As you can see, I'm not even backing up all of my files. My 1TB main data disk can't even be fully backed up onto my ancient 250GB harddrive.</p>
 <p>I don't even want to set up a cron job for backups because that would involve my backup drive being plugged in 24/7. It's best that I only turn it on once in a while and run the script manually to minimize the wear and tear.</p>
 <p>One day. Redundant storage. It's the dream for now, alright.</p>

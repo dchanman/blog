@@ -11,7 +11,7 @@ Pelican generates a static website. This means that the entire website is create
 
 The setup was quite simple. [Pelican](http://docs.getpelican.com/en/3.5.0/) installs via pip and comes with a quickstart command which makes everything super easy and streamlined. I'm also writing this blog with markdown which makes typing everything up in terminal Emacs over ssh not a terrible experience. (Technically, I could also mount my Pi's filesystem and use a local text editor too. I don't know why I'm not doing that.) lala
 
-```
+```bash
 sudo apt-get install python-pip  
 sudo pip install pelican  
 sudo pip install markdown  
@@ -19,7 +19,7 @@ sudo pip install markdown
 
 Blahblahblah type up some markdown.md files into the pelican/content directory, use the pelican command, generate some html, and then bam the blog is up and running. Cool.
 
-```
+```bash
 cd ~/pelican/content
 emacs hello_world.md  
 cd ~/pelican ; pelican  
@@ -34,13 +34,13 @@ I found this awesome 10 minute tutorial on how to learn Markdown [here](http://m
 
 And finally, my webpage is hosted on Lighttpd, a super lightweight web server. Super easy to set up as well. Standard install:
 
-```
+```bash
 sudo apt-get install lighttpd
 ```
 
 ... then edit the configuration file to point to Pelican's output files:
 
-```
+```bash
 sudo emacs /etc/lighttpd/lighttpd.conf
 ```
 
@@ -50,7 +50,7 @@ server.document-root        = "/var/www/html"
 ```
 
 Reset the server:
-```
+```bash
 sudo /etc/init.d/lighttpd restart
 ```
 

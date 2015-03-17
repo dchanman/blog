@@ -7,10 +7,13 @@ SITENAME = u"Derk's Werks"
 SITEURL = ''
 
 PATH = 'content'
+STATIC_PATHS = ['images']
+RELATIVE_URLS = False
 
 TIMEZONE = 'America/Vancouver'
 
 DEFAULT_LANG = u'en'
+
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

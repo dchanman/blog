@@ -15,12 +15,94 @@
                 <h1><a href="/">Derk's Werks </a></h1>
                 <nav><ul>
                     <li><a href="/category/dev.html">dev</a></li>
+                    <li><a href="/category/life.html">life</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/rsync.html">rsync</a></h1>
+                    <h1 class="entry-title"><a href="/pi-blog-performance-wall.html">Pi Blog Performance Wall</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-03-17T00:39:00-07:00">
+                Published: Tue 17 March 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/derek-chan.html">Derek Chan</a>
+        </address>
+<p>In <a href="/category/dev.html">dev</a>. </p>
+<p>tags: <a href="/tag/pi.html">pi</a> <a href="/tag/performance.html">performance</a> <a href="/tag/pelican.html">pelican</a> </p>
+</footer><!-- /.post-info --><p>So I've smashed into my first development wall with Pelican, Lighttpd, and my Raspberry Pi.</p>
+<p>I tried to host a photo I took on my phone here on my blog and bam, dead image link.</p>
+<p>I spent probably an hour crawling through Lighttpd configs, Pelican configs, and StackOverflow to try and find out why I can't display a simple local picture in a browser. However, when I loaded the same HTML from my local Ubuntu machine, the image showed up!</p>
+<p>Damn.</p>
+<p>So perhaps my poor little Raspberry Pi is feeling overburdened from trying to be a SFTP file server, a media center, and now a blog host. </p>
+<p>Just damn.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/taboo-mom.html" rel="bookmark"
+                           title="Permalink to Taboo Mom">Taboo Mom</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-03-16T23:02:00-07:00">
+                Published: Mon 16 March 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/derek-chan.html">Derek Chan</a>
+        </address>
+<p>In <a href="/category/life.html">life</a>. </p>
+<p>tags: <a href="/tag/family.html">family</a> <a href="/tag/mom.html">mom</a> <a href="/tag/games.html">games</a> </p>
+</footer><!-- /.post-info -->                <p><img alt="Taboostatic" src="images/taboo.jpg" /></p>
+<p>I found out today that my mom is a beast at Taboo. I can't believe how good she is at this game. She speaks English for probably a half hour each day. She usually forgets my friends don't speak English and starts drifting off into Cantonese.</p>
+<p>Here were ...</p>
+                <a class="readmore" href="/taboo-mom.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/hi-ina.html" rel="bookmark"
+                           title="Permalink to Hi Ina">Hi Ina</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-03-16T01:57:00-07:00">
+                Published: Mon 16 March 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/derek-chan.html">Derek Chan</a>
+        </address>
+<p>In <a href="/category/life.html">life</a>. </p>
+<p>tags: <a href="/tag/ina.html">ina</a> </p>
+</footer><!-- /.post-info -->                <p>Sup gurl, cool you're reading my blog hahaha. Okay now delete this from your history and never look here again because all there are gonna be are embarassing intense poems and you don't want to see those.</p>
+<hr />
+<p><strong>I</strong>ntense<br />
+<strong>N</strong>ice<br />
+<strong>A</strong>wesome  </p>
+<p><strong>C</strong>ool<br />
+<strong>O</strong>hmygad so ...</p>
+                <a class="readmore" href="/hi-ina.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/rsync.html" rel="bookmark"
+                           title="Permalink to rsync">rsync</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-03-16T01:27:00-07:00">
                 Published: Mon 16 March 2015
@@ -31,27 +113,11 @@
         </address>
 <p>In <a href="/category/dev.html">dev</a>. </p>
 <p>tags: <a href="/tag/pi.html">pi</a> <a href="/tag/linux.html">linux</a> <a href="/tag/nas.html">nas</a> </p>
-</footer><!-- /.post-info --><p>Currently, the Pi that I'm using as a <em>NAS</em> (Network Attached Storage) is just a single portable harddrive that's spinning on top of a desktop, cooled down by the fact that it's sitting by a window and it's still kinda chilly outdoors these days.</p>
-<p>I have absolutely no data redundancy built in at the moment. And while I would like to get a RAID0/1 box from NCIX sometime, I'm just backing up using rsync in the meantime.</p>
-<p>My backup drive is truly a piece of art. A 250GB Samba external harddrive that needs to be plugged into the wall socket. I hear the disc whurring away as backup-secure data is being written to it. I swear there's some disc dwarf in there pissed that someone blew the dust off his decade-old home and he's now power-sawing his way out for revenge.</p>
-<p>Anyways here's my backup script:</p>
-<blockquote>
-<p>#!/bin/bash<br />
-LOG_DIR=/home/derek/rsync-log.out
-rsync -rv /home/derek/pidata/02-Music/ /home/derek/pibackup/02-Music &gt;&gt; $LOG_DIR<br />
-rsync -rv /home/derek/pidata/03-Photos/ /home/derek/pibackup/03-Photos &gt;&gt; $LOG_DIR 
-rsync -rv /home/derek/pidata/05-Programming/ /home/derek/pibackup/05-Programming &gt;&gt; $LOG_DIR<br />
-rsync -rv /home/derek/pidata/06-Karate/ /home/derek/pibackup/06-Karate &gt;&gt; $LOG_DIR  </p>
-</blockquote>
-<p><em>rsync</em> basically does a copy paste between two folders, skipping over the files that are the same.</p>
-<p>As you can see, I'm not even backing up all of my files. My 1TB main data disk can't even be fully backed up onto my ancient 250GB harddrive.</p>
-<p>I don't even want to set up a cron job for backups because that would involve my backup drive being plugged in 24/7. It's best that I only turn it on once in a while and run the script manually to minimize the wear and tear.</p>
-<p>One day. Redundant storage. It's the dream for now, alright.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Currently, the Pi that I'm using as a <em>NAS</em> (Network Attached Storage) is just a single portable harddrive that's spinning on top of a desktop, cooled down by the fact that it's sitting by a window and it's still kinda chilly outdoors these days.</p>
+<p>I have ...</p>
+                <a class="readmore" href="/rsync.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

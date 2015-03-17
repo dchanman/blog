@@ -1,0 +1,16 @@
+Title: Pi Blog Performance Wall
+Date: 2015-03-17 00:39
+Category: pi
+Tags: performance, pelican
+
+So I've smashed into my first development wall with Pelican, Lighttpd, and my Raspberry Pi.
+
+I tried to host a photo I took on my phone here on my blog and bam, dead image link.
+
+I spent probably an hour crawling through Lighttpd configs, Pelican configs, and StackOverflow to try and find out why I can't display a simple local picture in a browser. However, when I loaded the same HTML from my local Ubuntu machine, the image showed up!
+
+Damn.
+
+So perhaps my poor little Raspberry Pi is feeling overburdened from trying to be a SFTP file server, a media center, and now a blog host. 
+
+Just damn.
